@@ -10,4 +10,4 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 #don't track cmakepp autogen files
-cmakepp
+Build_Phony

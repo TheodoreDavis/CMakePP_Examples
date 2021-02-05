@@ -17,6 +17,9 @@ cpp_end_class()
 # Create an instance of the class called "my_auto" using the default CTOR
 Automobile(CTOR my_auto)
 
+# Set color attribute to a different color
+Automobile(Set "${my_auto}" color magenta)
+
 # Access the "color" attribute and save it to the var "my_autos_color"
 Automobile(GET "${my_auto}" my_autos_color color)
 

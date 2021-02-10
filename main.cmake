@@ -1,5 +1,5 @@
 # Create an instance of the class called "my_auto" using the default CTOR
-Automobile(CTOR my_auto)
+Automobile(CTOR my_auto on)
 
 # Set color attribute to a different color
 Automobile(SET "${my_auto}" color magenta)
@@ -16,6 +16,7 @@ message("The color of my_auto is: ${my_autos_color}")
 Automobile(drive "${my_auto}" 2)
 Automobile(start "${my_auto}")
 Automobile(drive "${my_auto}" 4)
+Automobile(start "${my_auto}" 12)
 Automobile(drive "${my_auto}" 8)
 
 Automobile(describe_self "${my_auto}" my_result)

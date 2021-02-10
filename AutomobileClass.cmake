@@ -6,11 +6,38 @@ cpp_class(Automobile)
   cpp_attr(Automobile started off)
   cpp_attr(Automobile dist_driven 0)
 
+  # Define a constructor with arguments
+  cpp_constructor(CTOR Automobile bool)
+  function("${CTOR}" self _start)
+    Automobile(SET "${self}" started ${_start})
+  endfunction()
+
   # Define a function "start"
   cpp_member(start Automobile)
   function("${start}" self)
-    message("You started the engine.")
-    Automobile(SET "${self}" started on)
+    Automobile(Get "${self}" is_started started)
+    if("${is_started}")
+    message("You already started the engine!")
+    else()
+      message("You started the engine.")
+      Automobile(SET "${self}" started on)
+    endif()
+  endfunction()
+
+  # Overload a function "start"
+  cpp_member(start Automobile int)
+  function("${start}" self distance_km)
+    Automobile(Get "${self}" is_started started)
+    if("${is_started}")
+      Automobile(Get "${self}" dist dist_driven)
+      MATH(EXPR dist "${dist} + ${distance_km}")
+      Automobile(SET "${self}" dist_driven ${dist})
+      message("You already started the car but you drove ${distance_km} km.")
+    else()
+      Automobile(SET "${self}" dist_driven ${dist})
+      message("You started the engine and drove ${distance_km} km!")
+      Automobile(SET "${self}" started on)
+    endif()
   endfunction()
 
   # Example of function that references attributes / if else logic
@@ -31,14 +58,14 @@ cpp_class(Automobile)
   cpp_member(describe_self Automobile str)
   function("${describe_self}" self return_id)
 
-    # grab descriptors
-    Automobile(GET "${self}" my_color color)
-    Automobile(GET "${self}" my_state started)
-    Automobile(GET "${self}" my_dist dist_driven)
+    # grab descriptors; my is the prefix for each variable
+    Automobile(GET "${self}" my color started dist_driven)
 
     # Set return_id with PARENT_SCOPE flag
-    set("${return_id}" "I'm an automobile, I'm ${my_color}, I'm ${my_state}, and I've driven ${my_dist} km!" PARENT_SCOPE)
+    set("${return_id}" "I'm an automobile, I'm ${my_color}, I'm ${my_started}, and I've driven ${my_dist_driven} km!")
     
+    cpp_return("${return_id}")
+
   endfunction()
 
 # End class definition

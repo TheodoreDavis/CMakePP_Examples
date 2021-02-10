@@ -27,7 +27,8 @@ cpp_class(Automobile)
     if("${is_started}")
       message("You drove ${distance_km} km!")
       Automobile(Get "${self}" dist dist_driven)
-      Automobile(SET "${self}" dist_driven "${dist}" + "${distance_km}")
+      MATH(EXPR dist "${dist} + ${distance_km}") # MATH example
+      Automobile(SET "${self}" dist_driven ${dist})
     else()
       message("The car is not started")
     endif()
@@ -58,6 +59,10 @@ Automobile(SET "${my_auto}" color magenta)
 
 # Access the "color" attribute and save it to the var "my_autos_color"
 Automobile(GET "${my_auto}" my_autos_color color)
+
+
+Automobile(describe_self "${my_auto}" my_result)
+message("${my_result}")
 
 # Print out the value of the var "my_autos_color"
 message("The color of my_auto is: ${my_autos_color}")

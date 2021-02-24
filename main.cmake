@@ -20,3 +20,21 @@ Automobile(drive "${my_auto}" 8)
 
 Automobile(describe_self "${my_auto}" my_result)
 message("${my_result}")
+
+message()
+message() # clear some space
+message()
+
+MapWrapper(CTOR my_map)
+
+cpp_map(SET "${my_map}" key1 value1)
+cpp_map(SET "${my_map}" key2 value2)
+cpp_map(SET "${my_map}" key3 value3)
+
+cpp_map(HAS_KEY "${my_map}" res key3)
+message("Result of looking for key3: ${res}")
+
+cpp_map(HAS_KEY "${my_map}" res key5)
+message("Result of looking for key5: ${res}")
+
+MapWrapper(special_function "${my_map}")

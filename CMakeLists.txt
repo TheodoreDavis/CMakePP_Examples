@@ -7,4 +7,7 @@ include("${PROJECT_SOURCE_DIR}/cmake/get_cpp.cmake")
 
 include("${PROJECT_SOURCE_DIR}/AutomobileClass.cmake")
 
+include("${PROJECT_SOURCE_DIR}/MapWrapper.class.cmake")
+
 include("${PROJECT_SOURCE_DIR}/main.cmake")
+

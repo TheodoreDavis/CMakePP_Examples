@@ -21,9 +21,9 @@ Automobile(drive "${my_auto}" 8)
 Automobile(describe_self "${my_auto}" my_result)
 message("${my_result}")
 
-message()
-message() # clear some space
-message()
+message(" ")
+message(" ") # clear some space
+message(" ")
 
 MapWrapper(CTOR my_map)
 

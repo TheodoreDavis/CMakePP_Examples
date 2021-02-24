@@ -13,4 +13,9 @@ cpp_class(MapWrapper cpp_map)
         message("This is a function of the wrapper!")
     endfunction()
 
+    cpp_member(hash_map MapWrapper)
+    function("${hash_map}" self)
+        
+    endfunction()
+
 cpp_end_class()

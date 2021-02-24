@@ -25,7 +25,7 @@ message(" ")
 message(" ") # clear some space
 message(" ")
 
-MapWrapper(CTOR my_map)
+MapWrapper(CTOR my_map "${CMAKE_CURRENT_SOURCE_DIR/toolchain.cmake}")
 
 cpp_map(SET "${my_map}" key1 value1)
 cpp_map(SET "${my_map}" key2 value2)

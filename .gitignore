@@ -9,5 +9,6 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
-#don't track cmakepp autogen files
-Build_Phony
+
+#don't track cmake build files
+build

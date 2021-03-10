@@ -18,7 +18,7 @@ cpp_class(MapWrapper)
     #
     # TODO: add args parameter to allow users to add keys/vals to construction.
     #
-    # :param self: The map storing the key-value pairs.
+    # :param self: The MapWrapper to emulate a map.
     # :type self: MapWrapper
     # :returns: ``self`` will be set to the newly created MapWrapper.
     # :rtype: MapWrapper
@@ -47,7 +47,7 @@ cpp_class(MapWrapper)
     #
     # This function creates a new MapWrapper instance. The resulting MapWrapper
     # instance will contain all the keys and values of the passed in map. Note
-    # that this instance does not deep copy the map and will alias the original map.
+    # that this instance does not deep copy the map and will alias ``_map_p``.
     #
     # :param self: The MapWrapper to emulate a map.
     # :type self: MapWrapper
@@ -82,7 +82,7 @@ cpp_class(MapWrapper)
     # can use ``has_key(mapwrapper, desc, str)`` to determine whether the map does not have the
     # key or if the key was simply set to the empty string.
     #
-    # :param self: The map storing the key-value pairs.
+    # :param self: The MapWrapper storing the key-value pairs.
     # :type self: MapWrapper
     # :param _return_id: Name for the identifier to save the value to.
     # :type _return_id: desc
@@ -119,7 +119,7 @@ cpp_class(MapWrapper)
     # This function can be used to set the value of a map's key. If the key has a
     # value associated with it already that value will be overridden.
     #
-    # :param self: The map whose key is going to be set.
+    # :param self: The MapWrapper whose key is going to be set.
     # :type self: MapWrapper
     # :param _key_p: The key whose value is going to be set.
     # :type _key_p: str
@@ -151,7 +151,7 @@ cpp_class(MapWrapper)
     # This function can be used to get a list of keys which have been set for this
     # map.
     #
-    # :param self: The map whose keys are being retrieved.
+    # :param self: The MapWrapper whose keys are being retrieved.
     # :type self: MapWrapper
     # :param _key_p: The key whose value is being appended to.
     # :type _key_p: str
